@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  main:
+    lazy-initialization: true
+  devtools:
+    add-properties: true
+my:
+ servers:
+       -dev.example.com
+       -prod.example.com
