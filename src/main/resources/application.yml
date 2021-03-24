@@ -1,0 +1,53 @@
+server:
+  port: 8005
+spring:
+  profiles:
+    active: ${PROFILES_ENV:dev}
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 100MB
+
+mybatis:
+  mapper-locations: classpath:mapping/**/*.xml
+  type-aliases-package: com.inspur.jj.console.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+msp:
+  jwt:
+    token: 28a12b67e68441588d0ee60539d4f289
+
+
+#ribbon 超时设置，要小于hystrix的超时时间
+ribbon:
+  ConnectTimeout: 50000
+  ReadTimeout: 50000
+
+#启用feign的熔断机制
+feign:
+  hystrix:
+    enabled: true
+
+#hystrix超时配置
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+
+#activiti模型检测
+spring.activiti.check-process-definitions: false
+
+#enn:
+#  mqtt:
+#    host: tcp://10.1.1.45:1883
+#    username: mqtt
+#    password: 123456?
+#    timeout: 5000
+#    qos: 2
+#    cleanSession: false

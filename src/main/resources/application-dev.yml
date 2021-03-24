@@ -1,0 +1,44 @@
+spring:
+  redis:
+    host: ${REDIS_HOST:10.24.22.57}
+    port: 6379
+    database: 0
+    password: ${REDIS_PWD:123456?}
+    timeout: PT0.2S
+
+#  datasource:
+#    name: test
+#    driverName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3555/${MYSQL_DB:admindb_jzw}?useUnicode=true&characterEncoding=UTF8
+#    host: 127.0.0.1
+#    port: 3555
+#    username: gtsd
+#    password: gtsd
+
+  datasource:
+    name: test
+    driverName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:10.24.22.55}:3306/${MYSQL_DB:admindb}?useUnicode=true&characterEncoding=UTF8
+    host: 10.24.22.55
+    port: 3306
+    username: root
+    password: 123456?
+
+  cloud:
+    # spring cloud stream集成kafka的配置信息
+    stream:
+      instance-count: 1
+      instance-index: 0
+      kafka:
+        binder:
+          brokers: ${MQ_HOST:10.24.22.57}:${MQ_PORT:9092}
+        min-partition-count: 1
+        auto-create-topics: true
+        auto-add-partitions: true
+      bindings:
+        ## output: 表示向其他系统发送信息  不需要则可以不配置
+        sys_yw_output:
+          destination: admin-topic #指明向哪个消息队列追加信息
+          content-type: application/json #消息格式
+          producer:
+            partitionCount: 1
