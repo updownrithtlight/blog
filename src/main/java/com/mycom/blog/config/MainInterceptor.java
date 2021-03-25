@@ -6,12 +6,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * main interceptor
- * @author wanglei, wangleilc@inspur.com
- * @version 1.0.0
- * @since 1.0.0
- */
+
 @Component
 public class MainInterceptor extends HandlerInterceptorAdapter {
 

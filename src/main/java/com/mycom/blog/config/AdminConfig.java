@@ -11,12 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-/**
- * Admin config
- * @author wanglei, wangleilc@inspur.com
- * @version 1.0.0
- * @since 1.0.0
- */
+
 @Configuration
 public class AdminConfig {
     @Autowired

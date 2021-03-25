@@ -5,12 +5,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
-/**
- * web config
- * @author wanglei, wangleilc@inspur.com
- * @version 1.0.0
- * @since 1.0.0
- */
+
 @Configuration
 public class MainWebConfig implements WebMvcConfigurer {
 
